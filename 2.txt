@@ -1,0 +1,84 @@
+1>>>
+import random
+a = {}
+keys = tuple()
+values = []
+for i in range(0,40):
+    key = random.randint(0,100)
+    value = random.randint(0,100)
+    a[key] = value
+for key in a.keys():
+    if key %2 !=0:
+        keys += (key,)
+for value in a.values():
+    if value %2 == 0:
+        values.append(value)
+print(a, "   ", keys, "   ", values)
+A = open("file.txt","w")
+A.write(str(a))
+A.write(str(keys))
+A.write(str(values))
+A.close()
+
+2>>>
+def convert(a):
+    b = []
+    for i in a:
+        b.append(i)
+    return b
+tuplee = convert((1,2,3,4,5))
+print (convert, tuplee)
+A=open("file.txt","w")
+A.write(str(tuplee))
+A.write(str(convert))
+A.close()
+
+
+3>>>
+a = (5,6,2,4)
+b = (5,2,0,2)
+c = []
+for i in range(min(len(a),len(b))):
+    try:
+        devide = a[i]/b[i]
+        c.append(devide)
+    except ZeroDivisionError as j:
+        c.append(str(j))
+print (c)
+
+
+
+4>>>
+class tuple:
+    def __init__(self):
+        self.a = ()
+    def add(self, b,c,d,e):
+        self.a += (b, c, d, e)
+    def remove(self):
+        if len(self.a) >= 2:
+            self.a = self.a [:-2]
+    def __str__(self):
+        return str(self.a)
+x = tuple()
+x.add(1,2,3,4)
+print (x.a)
+x.remove()
+print (x.a)
+
+
+
+
+
+
+5>>>
+a = (("hi",20),("no",50),("look",25),("good",50))
+words = ()
+numbers = set()
+for i,j in a:
+    words += (i, )
+    numbers.add(j)
+print(words, tuple(numbers))
+A = open("file.txt","w")
+A.write (str(words))
+A.write (str(tuple(numbers)))
+A.close()
