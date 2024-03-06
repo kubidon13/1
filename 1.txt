@@ -1,0 +1,125 @@
+1)
+import random
+def convert():
+    a = {}
+    evenkeys = tuple()
+    oddkeys = tuple()
+    evenvalues = []
+    oddvalues = []
+    
+    for i in range(0,40):
+        key = random.randint(0,100)
+        value = random.randint(0,100)
+        a[key] = value
+    for key in a.keys():
+        if key %2 !=0:
+            oddkeys += (key,)
+        else:
+            evenkeys += (key,)
+    for value in a.values():
+        if value %2 == 0:
+            evenvalues.append(value)
+        else:
+            oddvalues.append(value)
+            
+    print(a, "oddkeys are:", oddkeys, "evenkeys are:", evenkeys,"oddvalues are",oddvalues,"evenvalues are:", evenvalues)
+    A=open("file.txt","w")
+    A.write(str(a) + "\n")
+    A.write(str(oddkeys) + "\n")
+    A.write(str(oddvalues) + "\n")
+    A.write(str(evenkeys) + "\n")
+    A.write(str(evenvalues) + "\n")
+
+
+    A.close()
+convert()
+
+2)
+list1 = [1,2,3,4,5,6,7,77,8,49,9,10]
+def convert2(a):
+    list2 = []
+    for i in range(len(a)):
+        if a[i]%7!=0:
+            list2.append(a[i])
+    return list2
+list3 = convert2(list1)
+print ("first list is:", list1, "list without devidable by-7s is:", list3)
+A=open("file.txt","w")
+A.write(str(list1) + "\n")
+A.write(str(list3) + "\n")
+A.close()
+
+3)
+def divide(list1,list2):
+    result = []
+    for i in range(min(len(list1),len(list2))):
+        try:
+            result1 = list1[i] / list2[i]
+            result.append(result1)
+        except ZeroDivisionError as j:
+            result.append(str(j))
+    return result
+            
+list1 =[5,6,7,8]
+list2 =[5,6,0,8]
+result = divide(list1,list2)
+
+print ("first list is:", list1,"second list is:", list2, "division result is:", result)
+
+A = open("file.txt","w")
+A.write("first list is:" + str(list1) + "\n")
+A.write("second list is:" + str(list2) + "\n")
+A.write("division result is:" + str(result) + "\n")
+A.close()
+
+4)
+import random
+
+class tuplee:
+    def __init__(self):
+        self.a = tuple(random.randint(0,100) for i in range(2))
+        print("tuple is:", self.a)
+    def add(self,b,c,d,e):
+        self.a += (b,c,d,e)
+        print("after adding elements:", self.a)
+    def remove(self):
+        if len(self.a) >= 4:
+            self.a = self.a[:(random.randint(1,4))]
+        else:
+            print("tuple dont have enough elements")
+    def __str__(self):
+        return str(self.a)
+x = tuplee()
+x.add(1,2,3,4)
+x.remove()
+print("after removing elements:",x)
+
+5)
+a = (("hi", 20), ("no", 50), ("look", 25), ("good", 50))
+words = ()
+numbers = set()
+
+for i, j in a:
+    if len(i) > 2:
+        words += (i,)
+    numbers.add(j)
+
+print(words, tuple(numbers))
+
+A = open("file.txt", "w")
+A.write(str(words) + "\n")
+A.write(str(tuple(numbers)) + "\n")
+A.close()
+//
+a = (("hi",20),("no",50),("look",25),("good",50))
+words = ()
+numbers = set()
+for i,j in a:
+    if 'o' in i:
+        words += (i, )
+    numbers.add(j)
+print(words, tuple(numbers))
+A = open("file.txt","w")
+A.write (str(words))
+A.write (str(tuple(numbers)))
+A.close()
